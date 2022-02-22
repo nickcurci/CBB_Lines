@@ -18,7 +18,7 @@ base.columns = ['Matchup', 'VI_Open',
               'DraftKings', 'PointsBet',
               'WynnBet', 'Superbook']
 
-base.to_csv("/Users/nicholascurci/Downloads/basedata.csv", index=False)
+# base.to_csv("/Users/nicholascurci/Downloads/basedata.csv", index=False)
 print(base)
 
 
@@ -37,7 +37,7 @@ t25 = pd.read_html(str(soup.select_one(".TableBase-overflow")))[0]
 t25.columns = ['Rank', 'Team',
               'Trend', 'Points', 'Blank',
               'Next Game', 'Opponent']
-t25.to_csv("/Users/nicholascurci/Downloads/top25data.csv", index=False)
+# t25.to_csv("/Users/nicholascurci/Downloads/top25data.csv", index=False)
 top25 = t25['Team'].tolist()
 top25list = []
 for team in top25:
@@ -71,7 +71,7 @@ featuredfinal = featuredfinal.drop(featuredfinal.columns.difference(['Matchup', 
 
 featuredfinal['Matchup'] = featuredfinal['Matchup'].str.split(n=4).str[-1]
 featuredfinal['Matchup'] = featuredfinal['Matchup'].str.replace('\d+', '@')
-featuredfinal.to_csv("/Users/nicholascurci/Downloads/featuredfinal.csv", index=False)
+# featuredfinal.to_csv("/Users/nicholascurci/Downloads/featuredfinal.csv", index=False)
 print(featuredfinal)
 
 # send in telegram
